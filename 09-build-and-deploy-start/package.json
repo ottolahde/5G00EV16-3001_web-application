@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "pgtools": "^0.3.2"
+  }
+}
