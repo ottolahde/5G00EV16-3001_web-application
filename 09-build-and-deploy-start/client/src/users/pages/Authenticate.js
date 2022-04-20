@@ -40,7 +40,7 @@ const Authenticate = props => {
     if (isLoginMode) {
       try {
         const response = await sendRequest(
-          'http://localhost:5000/api/users/login',
+          process.env.REACT_APP_BACKEND + '/users/login',
           'POST',
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -55,7 +55,7 @@ const Authenticate = props => {
     } else {
       try {
         const response = await sendRequest(
-          'http://localhost:5000/api/users/signup',
+          process.env.REACT_APP_BACKEND + '/users/signup',
           'POST',
           JSON.stringify({
             name: formState.inputs.name.value,

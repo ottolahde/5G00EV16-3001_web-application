@@ -1,0 +1,37 @@
+version: '2.4'
+services:
+  frontend:
+    image: "campsites/client"
+    ports:
+      - "80:80"
+    environment:
+      REACT_APP_BACKEND: http://localhost:5000/api
+    restart: always
+  api:
+    image: "campsites/api"
+    environment:
+      DB_NAME: campsites
+      DB_USER: user
+      DB_HOST: db
+      DB_PASSWORD: pass
+      DB_PORT: 5432
+      JWT_KEY: my_development_jwt_key
+    ports:
+      - "5000:5000"
+    restart: always
+  db:
+    image: "campsites/db"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: campsites
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - /var/lib/postgresql/data
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    restart: always

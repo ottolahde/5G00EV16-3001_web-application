@@ -1,0 +1,10 @@
+{
+  "env": {
+    "DB_NAME": "campsites",
+    "DB_USER": "user",
+    "DB_HOST": "localhost",
+    "DB_PASSWORD": "pass",
+    "DB_PORT": 5432,
+    "JWT_KEY": "my_super_secret_jwt_key"
+  }
+}

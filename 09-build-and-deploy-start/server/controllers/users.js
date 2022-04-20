@@ -57,7 +57,7 @@ const signUpUser = async (req, res, next) => {
         userId: newUser.id, // payload, anything that make sense and
         email: newUser.email // what you might need on the frontend
       },
-      'secret_only_the_server_knows', // secret key
+      process.env.JWT_KEY, // secret key
       { expiresIn: '1h' } // options like an experation time
     )
   } catch (err) {
@@ -98,7 +98,7 @@ const loginUser = async (req, res, next) => {
         userId: identifiedUser.id, // payload, anything that make sense and
         email: identifiedUser.email // what you might need on the frontend
       },
-      'secret_only_the_server_knows', // secret key
+      process.env.JWT_KEY, // secret key
       { expiresIn: '1h' } // options like an experation time
     )
   } catch (err) {
